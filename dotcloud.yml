@@ -1,0 +1,8 @@
+www:
+    type: nodejs
+    processes:
+        app: node web.js
+    config:
+        node_version: v0.8.x
+data:
+    type: redis
