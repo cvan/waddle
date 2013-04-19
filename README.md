@@ -14,10 +14,3 @@ Installation
 
     # Load MongoDB right now:
     launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.mongodb.plist
-
-
-heifer
-------
-[Heifer](https://github.com/potch/heifer) calculates your site's weight. Go and compile that:
-
-    go build heifer && ./heifer
