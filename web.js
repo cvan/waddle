@@ -15,10 +15,12 @@ function generate_mongo_url(obj) {
 var mongourl = generate_mongo_url(settings.mongo);
 
 http.createServer(function(req, res) {
-    res.writeHead(200, {
+    var headers = {
         'Content-Type': 'application/json',
         'Access-Control-Allow-Origin': '*'  // CORS
-    });
+    };
+
+    res.writeHead(200, headers);
 
     var path = url.parse(req.url, true);
     var qs = path.query;
@@ -52,7 +54,10 @@ http.createServer(function(req, res) {
             });
         });
     } else {
-        res.write(JSON.stringify([]));
+        headers['Content-Type'] = 'text/plain';
+        res.writeHead(404, headers);
+
+        res.write('Oopsy Daisy');
         res.end('\n');
     }
 }).listen(settings.port, settings.host);
