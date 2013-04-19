@@ -55,5 +55,6 @@ http.createServer(function(req, res) {
         res.write(JSON.stringify([]));
         res.end('\n');
     }
-
 }).listen(settings.port, settings.host);
+
+console.log('Running on http://' + settings.host + ':'+ settings.port);
